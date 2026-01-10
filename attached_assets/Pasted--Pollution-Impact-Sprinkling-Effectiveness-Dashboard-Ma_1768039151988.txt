@@ -1,0 +1,263 @@
+# Pollution Impact & Sprinkling Effectiveness Dashboard — Master Plan
+
+## 1. App Overview & Objectives
+
+**Objective:**
+Build a highly usable, impact-focused internal dashboard for municipal corporations to **measure, improve, and act on road-dust mitigation through water sprinkling**. The system prioritizes **before-vs-after impact**, actionable insights, and simple UI over public reporting or AI showmanship.
+
+**What this is not:**
+
+* Not a citizen-facing or PR dashboard
+* Not a futuristic or experimental system
+* Not a complex analytics platform
+
+**What this is:**
+
+* An operational control panel for ward-level engineers
+* A measurement + advisory system to improve AQI outcomes
+* A defensible, immediately deployable solution
+
+---
+
+## 2. Target Audience
+
+**Primary User (Day 1):**
+
+* Ward-level Engineer / Supervisor (Municipal Corporation)
+
+**User Characteristics:**
+
+* Action-oriented, time-constrained
+* Needs clarity, not charts
+* Accountable for routes and contractors
+* Uses data to make operational decisions, not presentations
+
+---
+
+## 3. Core Use Case
+
+> “Given current pollution, wind, and road conditions — where should I sprinkle today to get maximum impact, and did yesterday’s sprinkling actually work?”
+
+---
+
+## 4. Core Features & Functionality
+
+### 4.1 Sensor-Based Measurement
+
+* Fixed air-quality sensor units placed along:
+
+  * Dust-prone roads
+  * Construction-heavy wards
+  * Sprinkler routes (before & after)
+* Sensors include:
+
+  * PM2.5 / PM10
+  * Humidity (mandatory)
+  * Temperature (optional)
+
+### 4.2 Impact Measurement Logic (Locked)
+
+* **Simplest operational model**:
+
+  * Pre-sprinkling PM reading
+  * Post-sprinkling PM reading after a fixed time window
+* Focuses on **impact**, not absolute AQI compliance
+
+### 4.3 Advisory (Not Directive) Recommendations
+
+* System suggests (engineer decides):
+
+  * Which routes matter most today
+  * Best time to sprinkle for maximum impact
+* Recommendations are **advisory-only** to ensure adoption and trust
+
+### 4.4 Daily Structured Action Plans
+
+* Three precise plans generated per day:
+
+  * Morning
+  * Evening
+  * Night
+* Each plan highlights:
+
+  * 🚨 Routes requiring sprinkling (high impact expected)
+  * Routes where sprinkling is optional or low ROI
+
+### 4.5 Contractor Performance Monitoring
+
+* Tracks repeated ineffective sprinkling
+* Flags skipped high-impact routes
+* Generates contractor performance alerts for supervisors
+
+---
+
+## 5. Dashboard & UI Philosophy (Critical)
+
+### 5.1 Design Principles
+
+* **Map-first UI** (single source of truth)
+* Minimal text, no heavy charts
+* Traffic-light logic (🟢 🟡 🔴)
+* Calm, operational, non-distracting
+
+### 5.2 First Screen (No Scrolling)
+
+All visible immediately:
+
+* Current AQI / PM status (simple label)
+* Map showing:
+
+  * 🚨 Routes requiring sprinkling now
+  * Routes ineffective yesterday
+  * Ward-level status (🟢 / 🟡 / 🔴)
+* Contractor performance alerts
+* Today’s Morning / Evening / Night plan summary
+
+### 5.3 Interaction Model
+
+* Click a route → see:
+
+  * Pre vs post impact
+  * Recommendation reason (short, factual)
+* No dashboards inside dashboards
+
+---
+
+## 6. Decision & Update Model
+
+### 6.1 Data Refresh
+
+* **Near-real-time updates** (every few minutes)
+* Supports live monitoring
+
+### 6.2 Decision Anchors
+
+* Sprinkling plans remain **decision-based** (stable snapshots)
+* Avoids constant plan changes that confuse operators
+
+---
+
+## 7. Alerting Strategy (Strict & Limited)
+
+Alerts triggered only when:
+
+1. Repeated ineffective sprinkling on the same route
+2. High-impact route skipped
+3. AQI worsening despite sprinkling
+
+> Fewer alerts = higher trust
+
+---
+
+## 8. High-Level Technical Stack (Conceptual)
+
+### Frontend
+
+* Web-based dashboard (MVP)
+* Map-centric interface
+
+**Why:**
+
+* Easy deployment
+* Works on existing municipal hardware
+
+### Backend
+
+* Centralized data ingestion & processing service
+* Rule-based + pattern-aware recommendation engine (no heavy AI dependency)
+
+### Data Storage
+
+* Time-series pollution data
+* Route & ward metadata
+* Contractor performance history
+
+**Conceptual Options:**
+
+* Time-series optimized storage (efficient PM tracking)
+* Relational store for routes, wards, contractors
+
+---
+
+## 9. Conceptual Data Model
+
+Entities (High-level):
+
+* Ward
+* Route
+* Sensor Unit
+* Pollution Reading (time, PM, humidity)
+* Sprinkling Event (inferred)
+* Impact Result (before vs after)
+* Recommendation
+* Contractor Performance Record
+
+---
+
+## 10. Security & Access Control
+
+* Internal-use only
+* Role-based access:
+
+  * Ward Engineer
+  * Senior Supervisor (future)
+* No public data exposure
+* Audit logs for decisions & alerts
+
+---
+
+## 11. Development Phases
+
+### Phase 1 — MVP (Pilot Ready)
+
+* Sensor integration
+* Map-based dashboard
+* Before/after impact logic
+* Daily 3-part action plans
+
+### Phase 2 — Optimization
+
+* Better recommendation accuracy
+* Historical effectiveness learning
+* Improved contractor scoring
+
+### Phase 3 — Expansion
+
+* Cross-ward comparisons
+* Budget optimization insights
+* Policy justification reports
+
+---
+
+## 12. Potential Challenges & Mitigation
+
+| Challenge           | Mitigation                                  |
+| ------------------- | ------------------------------------------- |
+| Seasonal relevance  | Position as winter-focused operational tool |
+| Sensor noise        | Use humidity & time-window smoothing        |
+| Contractor disputes | Simple, auditable logic                     |
+| Tech resistance     | Advisory-only, human-in-control design      |
+
+---
+
+## 13. Future Expansion Possibilities
+
+* Integration with traffic-light pollution sensing
+* City-wide budget ROI analysis
+* Construction compliance monitoring
+* Policy simulation (what-if sprinkling scenarios)
+
+---
+
+## 14. Success Criteria
+
+* Ward engineers trust and act on recommendations
+* Reduced ineffective sprinkling
+* Measurable AQI improvement per unit spend
+* Easy explanation in audits and reviews
+
+---
+
+**Positioning Statement:**
+
+> “This system doesn’t talk about pollution — it helps municipalities *reduce it*.”
