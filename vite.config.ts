@@ -20,7 +20,7 @@ export default defineConfig({
           ),
           await import("@replit/vite-plugin-dev-banner").then((m) =>
             m.devBanner(),
-          ),
+          ), 
         ]
       : []),
   ],
